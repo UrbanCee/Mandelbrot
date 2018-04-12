@@ -156,7 +156,7 @@ void MyGLJuliaWidget::juliaPos(float x, float y)
    update();
 }
 
-void MyGLJuliaWidget::setIteration(int it)
+void MyGLJuliaWidget::setIterations(int it)
 {
     CJuliaOptions::iIterations=it;
 }

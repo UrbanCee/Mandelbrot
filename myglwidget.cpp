@@ -119,7 +119,7 @@ void MyGLWidget::paintGL()
     glEnableVertexAttribArray(m_posAttr);
     glEnableVertexAttribArray(m_fracCoordAttr);
     glEnable(GL_TEXTURE0);
-    glBindTexture(GL_TEXTURE_1D, textures[greyflashTex]);
+    glBindTexture(GL_TEXTURE_1D, textures[hsvTex]);
     glDrawArrays(GL_QUADS, 0, 4);
     glBindTexture(GL_TEXTURE_1D,0);
 

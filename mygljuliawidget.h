@@ -27,7 +27,7 @@ signals:
     void showStatusBarMessage(const QString &, int);
 public slots:
     void juliaPos(float,float);
-    void setIteration(int);
+    void setIterations(int);
 private:
 
     GLuint m_posAttr;
