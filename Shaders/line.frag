@@ -6,6 +6,6 @@ out vec4 col;
 
 void main()
 {
-    col=texture1D(tex,texCoord);
+    col=texture(tex,texCoord);
     col.r=1.0;
 }

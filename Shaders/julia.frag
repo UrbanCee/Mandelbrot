@@ -30,7 +30,7 @@ void main()
     }
     if (i<iterations)
     {
-        color = texture1D(tex,float(i%granularity)/float(granularity)+texOffset);
+        color = texture(tex,float(i%granularity)/float(granularity)+texOffset);
     }else
     {
         color = vec4(0.0,0.0,0.0,0.0);
