@@ -1,0 +1,12 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Shaders/triangles.vert</file>
+        <file>Shaders/triangles.frag</file>
+        <file>Shaders/mandelbrot.vert</file>
+        <file>Shaders/mandelbrot.frag</file>
+        <file>Shaders/julia.vert</file>
+        <file>Shaders/julia.frag</file>
+        <file>Shaders/line.vert</file>
+        <file>Shaders/line.frag</file>
+    </qresource>
+</RCC>
