@@ -197,7 +197,7 @@ void MyGLWidget::resizeGL(int w, int h)
 
 void MyGLWidget::wheelEvent(QWheelEvent *e)
 {
-    fScale*=1.0+(float)(e->delta())/1000.0;
+    fScale*=1.0+(float)(e->angleDelta().y())/1000.0;
     update();
 }
 
@@ -205,18 +205,18 @@ void MyGLWidget::mouseMoveEvent(QMouseEvent *e)
 {
     if (bMoving)
     {
-        float dx=(float)(e->x()-mouseX)/(float)height()*2.0;
-        float dy=(float)(e->y()-mouseY)/(float)height()*2.0;
-        mouseX=e->x();
-        mouseY=e->y();
+        float dx=(float)(e->position().x()-mouseX)/(float)height()*2.0;
+        float dy=(float)(e->position().y()-mouseY)/(float)height()*2.0;
+        mouseX=e->position().x();
+        mouseY=e->position().y();
         posx-=dx*fScale;
         posy+=dy*fScale;
         update();
     }
 
     if (bMoveJulia){
-        float x=((float)e->x()-(float)width()/2.0)/(float)height()*2.0;
-        float y=(float)e->y()/(float)height()*2.0-1.0;
+        float x=((float)e->position().x()-(float)width()/2.0)/(float)height()*2.0;
+        float y=(float)e->position().y()/(float)height()*2.0-1.0;
         x*=fScale;
         y*=-fScale;
         x+=posx;
@@ -232,12 +232,12 @@ void MyGLWidget::mousePressEvent(QMouseEvent *e)
 {
     if (e->button()==Qt::LeftButton){
         bMoving=true;
-        mouseX=e->x();
-        mouseY=e->y();
+        mouseX=e->position().x();
+        mouseY=e->position().y();
     }
     if (e->button()==Qt::RightButton){
-        float x=((float)e->x()-(float)width()/2.0)/(float)height()*2.0;
-        float y=(float)e->y()/(float)height()*2.0-1.0;
+        float x=((float)e->position().x()-(float)width()/2.0)/(float)height()*2.0;
+        float y=(float)e->position().y()/(float)height()*2.0-1.0;
         x*=fScale;
         y*=-fScale;
         x+=posx;

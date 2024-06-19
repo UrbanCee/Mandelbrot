@@ -1,6 +1,5 @@
 #include "mygljuliawidget.h"
 
-#include "myglwidget.h"
 #include <QDebug>
 #include <QMainWindow>
 #include <QScreen>
@@ -18,7 +17,7 @@ void MyGLJuliaWidget::initializeGL()
 {
     initializeOpenGLFunctions();
     QString versionString1(QLatin1String(reinterpret_cast<const char*>(glGetString(GL_VERSION))));
-    emit(showStatusBarMessage(QString("OpenGL Version: ")+versionString1,10000));
+    emit showStatusBarMessage(QString("OpenGL Version: ")+versionString1,10000);
 
     m_program = new QOpenGLShaderProgram(this);
         m_program->addShaderFromSourceFile(QOpenGLShader::Vertex, ":/Shaders/julia.vert");
@@ -117,7 +116,7 @@ void MyGLJuliaWidget::resizeGL(int w, int h)
 
 void MyGLJuliaWidget::wheelEvent(QWheelEvent *e)
 {
-    fScale*=1.0+(float)(e->delta())/1000.0;
+    fScale*=1.0+(float)(e->angleDelta().y())/1000.0;
     update();
 }
 
@@ -125,10 +124,10 @@ void MyGLJuliaWidget::mouseMoveEvent(QMouseEvent *e)
 {
     if (bMoving)
     {
-        float dx=(float)(e->x()-mouseX)/(float)height()*2.0;
-        float dy=(float)(e->y()-mouseY)/(float)height()*2.0;
-        mouseX=e->x();
-        mouseY=e->y();
+        float dx=(float)(e->position().x()-mouseX)/(float)height()*2.0;
+        float dy=(float)(e->position().y()-mouseY)/(float)height()*2.0;
+        mouseX=e->position().x();
+        mouseY=e->position().y();
         posx-=dx*fScale;
         posy+=dy*fScale;
         update();
@@ -139,8 +138,8 @@ void MyGLJuliaWidget::mousePressEvent(QMouseEvent *e)
 {
     if (e->button()==Qt::LeftButton){
         bMoving=true;
-        mouseX=e->x();
-        mouseY=e->y();
+        mouseX=e->position().x();
+        mouseY=e->position().y();
     }
 }
 

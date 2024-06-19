@@ -22,7 +22,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->label_2->setNum(CMandelbrotOptions::iIterations);
     ui->label_4->setNum(CJuliaOptions::iIterations);
     ui->groupAnimate->setChecked(COptions::animating);
-
+    connect(ui->horizontalSlider,&QSlider::valueChanged,ui->label_2,(void (QLabel::*) (int))&QLabel::setNum);
+    connect(ui->horizontalSlider_2,&QSlider::valueChanged,ui->label_4,(void (QLabel::*) (int))&QLabel::setNum);
 }
 
 MainWindow::~MainWindow()

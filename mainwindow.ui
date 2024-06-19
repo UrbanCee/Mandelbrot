@@ -283,38 +283,6 @@
    </hints>
   </connection>
   <connection>
-   <sender>horizontalSlider_2</sender>
-   <signal>valueChanged(int)</signal>
-   <receiver>label_4</receiver>
-   <slot>setNum(int)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>971</x>
-     <y>598</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>1001</x>
-     <y>598</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>horizontalSlider</sender>
-   <signal>valueChanged(int)</signal>
-   <receiver>label_2</receiver>
-   <slot>setNum(int)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>442</x>
-     <y>598</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>514</x>
-     <y>598</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
    <sender>horizontalSlider</sender>
    <signal>valueChanged(int)</signal>
    <receiver>openGLWidget</receiver>
